@@ -9,6 +9,8 @@
 
 Winkow（早期内部代号「摸鱼小窗」）是一个基于 Electron 的 Windows 桌面悬浮小窗工具。它把「临时看一眼」的内容收进一块可以瞬间隐藏的透明浮窗里：默认静音、不进任务栏、可从截图与屏幕共享中剔除，适合放在屏幕角落而不打扰手头的工作。
 
+官网地址：[https://winkow.maningwenwei.xyz/](https://winkow.maningwenwei.xyz/)
+
 ---
 
 ## 目录
