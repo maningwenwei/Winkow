@@ -67,9 +67,9 @@ const check = (name, cond, detail) => (cond ? oks.push(name) : fails.push(name +
   const ap = new AirPlay({ config: { get: () => cfg, set: () => {} } });
   // relay / 中继在真实应用里由 index.js 组装；这里只需要 status() 不炸
   ap.relay = ap.relay || { status: () => ({ paused: false }) };
-  ap.name = 'WinkTest';
+  ap.name = 'WinkowTest';
   ap.pin = '5676';
-  ap.tmpDir = path.join(require('os').tmpdir(), 'wink-vnet-test');
+  ap.tmpDir = path.join(require('os').tmpdir(), 'winkow-vnet-test');
   try { fs.mkdirSync(ap.tmpDir, { recursive: true }); } catch (_) {}
 
   // 找引擎：airplay/ 里现在有 uxplay-cli.exe

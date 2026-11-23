@@ -16,13 +16,13 @@
  *   3. vnet 每秒采样（connected / 累计帧 / 距上次收到数据的毫秒 / socket 已读字节）
  *      —— 区分「没发」和「发了没读」。
  *
- * 文件固定为 %TEMP%/wink-diag.log，每次启动清空（一次复现一份，不用翻旧数据）。
+ * 文件固定为 %TEMP%/winkow-diag.log，每次启动清空（一次复现一份，不用翻旧数据）。
  */
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
-const FILE = path.join(os.tmpdir(), 'wink-diag.log');
+const FILE = path.join(os.tmpdir(), 'winkow-diag.log');
 
 let stream = null;
 let started = 0;
@@ -35,7 +35,7 @@ function open() {
     // 上一次运行的日志留一份：现场复现往往要连做两组对照（开/关某个开关），
     // 每次启动都覆盖的话，前一组证据就没了。
     if (fs.existsSync(FILE)) {
-      try { fs.copyFileSync(FILE, path.join(os.tmpdir(), 'wink-diag.prev.log')); } catch (_) {}
+      try { fs.copyFileSync(FILE, path.join(os.tmpdir(), 'winkow-diag.prev.log')); } catch (_) {}
     }
     stream = fs.createWriteStream(FILE, { flags: 'w' });
     stream.on('error', () => { stream = null; });
@@ -56,7 +56,7 @@ function log(tag, msg) {
   const line = `${stamp()} [${tag}] ${msg}\n`;
   const s = open();
   try { if (s) s.write(line); } catch (_) { /* 磁盘满 / 句柄失效都不该影响主流程 */ }
-  if (process.env.WINK_DIAG_ECHO) {
+  if (process.env.WINKOW_DIAG_ECHO) {
     try { process.stdout.write(line); } catch (_) {}
   }
 }

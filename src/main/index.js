@@ -44,8 +44,8 @@ function safeUrl(raw) {
 function boot() {
   const ctx = {};
 
-  // 只改品牌名、不改数据目录：productName 变成 Wink 后 Electron 的默认
-  // userData 会跟着变成 %APPDATA%/Wink，老配置、网页 session、开机自启项
+  // 只改品牌名、不改数据目录：productName 变成 Winkow 后 Electron 的默认
+  // userData 会跟着变成 %APPDATA%/Winkow，老配置、网页 session、开机自启项
   // 会被留在旧目录里。打包运行时显式钉回原名目录，功能与已有设置一律不变。
   // 两个例外必须放行，否则会覆盖调用方指定：① 命令行 --user-data-dir
   // （端到端探针用它隔离配置）；② 源码模式（app.isPackaged=false，本来就用
@@ -56,7 +56,7 @@ function boot() {
   }
 
   app.whenReady().then(async () => {
-    app.setAppUserModelId('Wink.Float');
+    app.setAppUserModelId('Winkow.Float');
     diag.start();
 
     const config = new ConfigStore();
@@ -338,7 +338,7 @@ function boot() {
      * H264 的参数集每段会话只出现一次（引擎在首包前拼上 SPS+PPS），之后全是
      * 依赖前帧的 P 帧。所以浮窗一旦错过这一帧（渲染进程重载、崩溃恢复、
      * 页面刷新），新建的解码器就永远等不到参数集，画面再也不会出现 ——
-     * 用户的感受就是"必须退出 Wink 重开"。把这一帧留着，浮窗就绪时补发一次，
+     * 用户的感受就是"必须退出 Winkow 重开"。把这一帧留着，浮窗就绪时补发一次，
      * 解码器就能自己重建起来。
      */
     let vnetKeyFrame = null;

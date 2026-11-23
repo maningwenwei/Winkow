@@ -43,7 +43,7 @@ async function shot(port, urlPart, file) {
 }
 
 (async () => {
-  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'wink-shot-'));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'winkow-shot-'));
   fs.writeFileSync(path.join(tmp, 'moyu-config.json'), JSON.stringify({ configVersion: 7, mode: 'idle', firstRun: false, window: { x: 260, y: 200, width: 372, height: 268 } }));
   const env = { ...process.env };
   delete env.ELECTRON_RUN_AS_NODE;

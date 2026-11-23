@@ -6,7 +6,7 @@
  * 生成一个自包含页面，用来在没有手机的情况下验证「WebCodecs 解码 + canvas」。
  *
  * 与 make-player.js 的区别：那个测的是「AVCC + avcC 能不能喂进 VideoDecoder」，
- * 这个测的是 **Wink 真正会用的那个模块**（Annex-B 输入、自己拆包/拼 avcC），
+ * 这个测的是 **Winkow 真正会用的那个模块**（Annex-B 输入、自己拆包/拼 avcC），
  * 所以它验证的是产品代码，不是验证代码。
  *
  * usage: node tools/make-decoder-harness.js <file.h264> [out.html] [maxFrames]

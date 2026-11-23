@@ -11,7 +11,7 @@
  * 独立视频窗口」这类误操作。全程不需要 iPhone 连接。
  *
  *   node scripts/e2e-airplay-start.js
- *   node scripts/e2e-airplay-start.js dist/win-unpacked/Wink.exe
+ *   node scripts/e2e-airplay-start.js dist/win-unpacked/Winkow.exe
  */
 const { spawn, execFileSync } = require('child_process');
 const fs = require('fs');
@@ -190,7 +190,7 @@ child.on('exit', (code) => {
     // 参数必须是真渲染器，且不再让引擎导出 H264 dump（那条旁路的数据是坏的）
     argsVideoSink: /-vs d3d11videosink/.test(a),
     noDump: !/-vdmp/.test(a),
-    argsCustomName: /-n Wink\b/.test(a) || /-n MoyuFloat/.test(a),
+    argsCustomName: /-n Winkow\b/.test(a) || /-n MoyuFloat/.test(a),
     // -reset 0：关掉引擎默认的 15 秒静默重置，手机静置/锁屏不该被接收端踢掉
     argsResetOff: /-reset 0/.test(a),
     modeMirror: /^mirror\b/.test(state),

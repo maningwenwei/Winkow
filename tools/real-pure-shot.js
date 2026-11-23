@@ -14,11 +14,11 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const PORT = 9347;
-const TMP = path.join(os.tmpdir(), `wink-real-pure-${process.pid}`);
+const TMP = path.join(os.tmpdir(), `winkow-real-pure-${process.pid}`);
 const USER_DATA = path.join(TMP, 'userData');
 const SHOT = path.join(__dirname, 'pure-evidence-v2.png');
-const DEV_ELECTRON = process.env.WINK_EXE || path.join(ROOT, 'node_modules', 'electron', 'dist', 'electron.exe');
-const PACKED = !!process.env.WINK_EXE;
+const DEV_ELECTRON = process.env.WINKOW_EXE || path.join(ROOT, 'node_modules', 'electron', 'dist', 'electron.exe');
+const PACKED = !!process.env.WINKOW_EXE;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const PAGE = '<!doctype html><html><head><meta charset="utf-8"><title>PureProbe</title></head>' +

@@ -20,7 +20,7 @@ class TrayManager {
     const icon = TRAY_IMAGE;
     if (!icon || icon.isEmpty()) return;
     this.tray = new Tray(icon);
-    this.tray.setToolTip('Wink');
+    this.tray.setToolTip('Winkow');
     this.tray.on('click', () => this.controller.toggle('tray'));
     this.refresh();
   }

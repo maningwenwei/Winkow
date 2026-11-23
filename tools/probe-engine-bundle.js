@@ -55,7 +55,7 @@ env.GST_REGISTRY = path.join(tmp, 'gst-registry.bin');
 env.GST_REGISTRY_UPDATE = 'yes';
 
 const args = [
-  '-n', 'WinkProbe', '-nh', '-nohold', '-pin', '5676',
+  '-n', 'WinkowProbe', '-nh', '-nohold', '-pin', '5676',
   '-p', '7100', '-s', '720x1560', '-fps', '30',
   '-vs', 'fakesink', '-as', '0', '-reset', '0',
   '-vnet', '7790'

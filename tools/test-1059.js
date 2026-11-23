@@ -20,7 +20,7 @@ const koffi = require('koffi');
 
 const ROOT = path.resolve(__dirname, '..');
 const ELECTRON = path.join(ROOT, 'node_modules', 'electron', 'dist', 'electron.exe');
-const DIAG = path.join(os.tmpdir(), 'wink-diag.log');
+const DIAG = path.join(os.tmpdir(), 'winkow-diag.log');
 
 const user32 = koffi.load('user32.dll');
 const RECT = koffi.struct('RECT', { left: 'long', top: 'long', right: 'long', bottom: 'long' });
@@ -102,7 +102,7 @@ async function cdpFloat(expr, port = 9461) {
 }
 
 (async () => {
-  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'wink-1059-'));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'winkow-1059-'));
   // 模拟「上次退出时停在网页模式」：旧版会接着恢复网页，新版必须回到待机
   fs.writeFileSync(path.join(tmp, 'moyu-config.json'), JSON.stringify({
     configVersion: 7,
@@ -116,7 +116,7 @@ async function cdpFloat(expr, port = 9461) {
     window: { x: 220, y: 180, width: 372, height: 268 }
   }, null, 2), 'utf8');
 
-  // diag 是 %TEMP% 下的公共文件，多个 Wink 实例（比如用户自己开着旧版本）会往同一个
+  // diag 是 %TEMP% 下的公共文件，多个 Winkow 实例（比如用户自己开着旧版本）会往同一个
   // 文件里追加；并发写入会让 `hideFloat 完成` 这类行被切碎，计数就失真了。
   // 这里先清空，保证从本轮起算。
   try { fs.writeFileSync(DIAG, ''); } catch (_) {}

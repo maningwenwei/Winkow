@@ -100,7 +100,7 @@ function tick() {
     // 这条是本次排查的核心嫌疑之一：隐藏时会对**引擎自己的 WASAPI 会话**
     // 调 ISimpleAudioVolume::SetMute。若引擎侧因此卡住，video_process 不再
     // 被调用，vnet 就一帧都没有 —— 而手机仍显示投屏中。记下耗时与结果，
-    // 和 wink-diag.log 里同一秒的 `[vnet] sinceData` 一对，就能判定。
+    // 和 winkow-diag.log 里同一秒的 `[vnet] sinceData` 一对，就能判定。
     diag.log('audio', `SetMute ${want} 耗时 ${Date.now() - t0}ms · ${lastResult.slice(0, 120) || 'no-output'}`);
     // 光「跑过脚本」不算生效：必须真的找到会话、且读回来的 mute 等于目标值。
     const m = /^OK\s+(\d+)\s+mute=(\d)$/.exec(lastResult);

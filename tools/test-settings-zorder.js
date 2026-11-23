@@ -15,9 +15,9 @@ const koffi = require('koffi');
 
 const ROOT = path.resolve(__dirname, '..');
 const ELECTRON = path.join(ROOT, 'node_modules', 'electron', 'dist', 'electron.exe');
-// 设 WINK_EXE 可以直接测打包后的 Wink.exe（asar 版），不设则跑源码
-const EXE = process.env.WINK_EXE || ELECTRON;
-const ARGS = process.env.WINK_EXE ? [] : ['.'];
+// 设 WINKOW_EXE 可以直接测打包后的 Winkow.exe（asar 版），不设则跑源码
+const EXE = process.env.WINKOW_EXE || ELECTRON;
+const ARGS = process.env.WINKOW_EXE ? [] : ['.'];
 const PORT = 9468;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -104,7 +104,7 @@ async function until(fn, ms) {
 }
 
 (async () => {
-  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'wink-zorder-'));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'winkow-zorder-'));
   fs.writeFileSync(path.join(tmp, 'moyu-config.json'), JSON.stringify({
     configVersion: 7,
     mode: 'idle',

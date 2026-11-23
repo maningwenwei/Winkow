@@ -28,10 +28,10 @@ const mouse_event = user32.func('void __stdcall mouse_event(uint32 flags, int32 
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-function winkPids() {
+function winkowPids() {
   try {
     const out = execFileSync('powershell.exe', ['-NoProfile', '-Command',
-      `(Get-Process Wink,electron -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowHandle -ne 0 }).Id -join ','`
+      `(Get-Process Winkow,electron -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowHandle -ne 0 }).Id -join ','`
     ], { encoding: 'utf8' }).trim();
     return out ? out.split(',').map(Number).filter(Boolean) : [];
   } catch (_) { return []; }
@@ -65,7 +65,7 @@ function rect(h) {
 
 async function main() {
   const yOff = Number(process.argv[2] || 10);
-  const pids = winkPids();
+  const pids = winkowPids();
   if (!pids.length) { console.error('NO_PROCESS'); process.exit(1); }
   let target = findWindow(pids);
   if (!target) { console.error('NO_WINDOW'); process.exit(1); }

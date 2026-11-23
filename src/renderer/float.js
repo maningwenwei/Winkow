@@ -3,7 +3,7 @@
   const api = window.moyu;
   const $ = (id) => document.getElementById(id);
   // 面向用户的文案集中在 messages.js，浮窗与设置页共用一套（见那里的注释）
-  const TXT = window.WinkText || {
+  const TXT = window.WinkowText || {
     airplayError: () => '出错了，请再试一次',
     pageError: () => '这个网页没打开，检查一下网址和网络'
   };
@@ -648,7 +648,7 @@
 
     $('castPin').hidden = !(running && (hasPin || s.noPin));
     $('castPinText').textContent = hasPin ? pin : '免 PIN';
-    $('castDevice').textContent = s.name || 'Wink';
+    $('castDevice').textContent = s.name || 'Winkow';
 
     $('castHelp').textContent = s.phase === 'error'
       ? TXT.airplayError(s.error)
@@ -661,7 +661,7 @@
               ? '正在自动重连，稍等两秒再点一次「屏幕镜像」。'
               : '手机上切换声音输出会断开投屏，这是 iOS 的行为。点一次「屏幕镜像」就能接回来；想一直不断，用耳机连电脑听声音，别动手机的音频输出。')
             : hasPin
-              ? `控制中心 → 屏幕镜像 → 选「${s.name || 'Wink'}」，输入上面的 PIN。`
+              ? `控制中心 → 屏幕镜像 → 选「${s.name || 'Winkow'}」，输入上面的 PIN。`
               : '控制中心 → 屏幕镜像 → 选本机即可（免 PIN）。';
 
     const toggle = $('castToggle');
@@ -686,7 +686,7 @@
               ? '接收器正在重启，两秒后再点一次「屏幕镜像」'
               : '在 iPhone 控制中心点一次「屏幕镜像」，选本机就能接回来')
             : hasPin
-              ? `控制中心 → 屏幕镜像 → 选「${s.name || 'Wink'}」，输入下方 PIN`
+              ? `控制中心 → 屏幕镜像 → 选「${s.name || 'Winkow'}」，输入下方 PIN`
               : '控制中心 → 屏幕镜像 → 选本机（免 PIN）';
     }
     const row = $('pinRow');
@@ -827,7 +827,7 @@
       },
       onState: function (state) {
         if (state === 'unsupported') {
-          toast('这台电脑暂时显示不了投屏画面，更新显卡驱动后重启 Wink 试试', 'warn');
+          toast('这台电脑暂时显示不了投屏画面，更新显卡驱动后重启 Winkow 试试', 'warn');
         }
       }
     });

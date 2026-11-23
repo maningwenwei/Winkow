@@ -534,9 +534,9 @@ class AirPlayEngine extends EventEmitter {
     this.pin = /^(?!0000)\d{4}$/.test(fixed) ? fixed
       : String(Math.floor(1000 + Math.random() * 9000));
     // GUI 引擎用 QProcess::splitCommand 解析 arguments.txt，设备名不能含空白/引号
-    this.name = String(cfg.airplayName || 'Wink').trim()
+    this.name = String(cfg.airplayName || 'Winkow').trim()
       .replace(/[\s"'`\\]+/g, '-').replace(/^-+|-+$/g, '')
-      .slice(0, 32) || 'Wink';
+      .slice(0, 32) || 'Winkow';
     this.engineKind = this.engineType(engine);
     this.engineFile = engine;
     this.hidden = false;
@@ -870,7 +870,7 @@ class AirPlayEngine extends EventEmitter {
       const lines = String(chunk).split(/\r?\n/).filter(Boolean);
       // 会话起止必须看**全部**行：只取最后 3 行会漏掉夹在中间的会话事件
       lines.forEach((l) => this._watchSessionLine(l));
-      // 排查期：引擎每一行都落进 wink-diag.log。`[vnet] client connected /
+      // 排查期：引擎每一行都落进 winkow-diag.log。`[vnet] client connected /
       // dropped` 是判断「引擎有没有把帧发出来」的唯一直接证据，以前被
       // keep.slice(-3) 冲掉了，现场只剩一句「5 秒没收到帧」，等于没证据。
       lines.forEach((l) => diag.log('engine', l.slice(0, 300)));
@@ -1048,7 +1048,7 @@ class AirPlayEngine extends EventEmitter {
      * 但 force 这条路径的前提正好相反 —— 会话在、画面却一帧都没有（零帧看门狗
      * 只在 session 存活时才会触发）。旧代码在这里无差别 return，等于那个
      * 「10 秒自动重启」从来没执行过：日志里提示打了，引擎纹丝不动，用户只能
-     * 自己退出 Wink。 */
+     * 自己退出 Winkow。 */
     if (this.session && !force) return;
     if (force) {
       // 画面已经死了，这个会话只会挡路：先标记失效，重启完等手机建新会话
@@ -2161,7 +2161,7 @@ class AirPlayEngine extends EventEmitter {
      * 一次同步 PowerShell，实测把主进程钉住 400~700ms —— 这期间 vnet 的
      * socket 没人读，引擎那边的非阻塞 send 累计停顿到 1s 就判定「对面不要了」
      * 直接把连接关掉。结果是：手机上仍显示「正在投屏」，浮窗却再也收不到
-     * 一帧（新连接拿不到 SPS/PPS，会话中途不会重发），只能重开 Wink。
+     * 一帧（新连接拿不到 SPS/PPS，会话中途不会重发），只能重开 Winkow。
      * 用户报的「收起几秒再唤出，画面就没了，重连也不出来」正是这条。
      */
     if (this.renderMode === 'vnet') {

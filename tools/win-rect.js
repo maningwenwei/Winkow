@@ -1,4 +1,4 @@
-/* 找到 Wink/Electron 浮窗的窗口矩形（物理像素）并打印 JSON。
+/* 找到 Winkow/Electron 浮窗的窗口矩形（物理像素）并打印 JSON。
  * 只做一件事：给截图脚本 / 拖动测试提供真实窗口位置。 */
 const { execFileSync } = require('child_process');
 const koffi = require('koffi');
@@ -15,7 +15,7 @@ const GetWindowThreadProcessId = user32.func('uint32 __stdcall GetWindowThreadPr
 function pids() {
   try {
     const out = execFileSync('powershell.exe', ['-NoProfile', '-Command',
-      `(Get-Process Wink,electron -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowHandle -ne 0 }).Id -join ','`
+      `(Get-Process Winkow,electron -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowHandle -ne 0 }).Id -join ','`
     ], { encoding: 'utf8' }).trim();
     return out ? out.split(',').map(Number).filter(Boolean) : [];
   } catch (_) { return []; }

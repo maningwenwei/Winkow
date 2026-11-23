@@ -9,7 +9,7 @@
  * 面板必须「在窗口内、被算作可见、且中心点命中的是它自己」。
  *
  * 用法：node tools/test-listpanel-1062.js [shot.png]
- *      设 WINK_EXE=... 可测打包后的 Wink.exe
+ *      设 WINKOW_EXE=... 可测打包后的 Winkow.exe
  */
 const fs = require('fs');
 const os = require('os');
@@ -18,8 +18,8 @@ const { spawn, execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const ELECTRON = path.join(ROOT, 'node_modules', 'electron', 'dist', 'electron.exe');
-const EXE = process.env.WINK_EXE || ELECTRON;
-const ARGS = process.env.WINK_EXE ? [] : ['.'];
+const EXE = process.env.WINKOW_EXE || ELECTRON;
+const ARGS = process.env.WINKOW_EXE ? [] : ['.'];
 const PORT = 9467;
 const SHOT = process.argv[2] || '';
 const SHOT_NORMAL = process.argv[3] || '';
@@ -119,7 +119,7 @@ const probe = (id) => `(() => {
 })()`;
 
 (async () => {
-  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'wink-list-'));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'winkow-list-'));
   fs.writeFileSync(path.join(tmp, 'moyu-config.json'), JSON.stringify({
     configVersion: 7,
     mode: 'idle',

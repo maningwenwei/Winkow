@@ -21,7 +21,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
-const LOG = path.join(os.tmpdir(), 'wink-child-window.log');
+const LOG = path.join(os.tmpdir(), 'winkow-child-window.log');
 try { fs.unlinkSync(LOG); } catch (_) {}
 const log = (s) => { fs.appendFileSync(LOG, s + '\n'); console.log(s); };
 

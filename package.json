@@ -1,8 +1,8 @@
 {
   "name": "moyu-float",
-  "productName": "Wink",
+  "productName": "Winkow",
   "version": "1.0.62",
-  "description": "Wink",
+  "description": "Winkow",
   "main": "src/main/index.js",
   "private": true,
   "engines": {
@@ -15,7 +15,7 @@
   },
   "build": {
     "appId": "com.moyufloat.float",
-    "productName": "Wink",
+    "productName": "Winkow",
     "directories": {
       "output": "dist"
     },
@@ -55,14 +55,14 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Wink",
+      "shortcutName": "Winkow",
       "installerIcon": "assets/icon.ico",
       "uninstallerIcon": "assets/icon.ico",
       "installerHeaderIcon": "assets/icon.ico",
-      "artifactName": "Wink-${version}-Setup.${ext}"
+      "artifactName": "Winkow-${version}-Setup.${ext}"
     },
     "portable": {
-      "artifactName": "Wink-${version}-portable.${ext}"
+      "artifactName": "Winkow-${version}-portable.${ext}"
     }
   }
 }

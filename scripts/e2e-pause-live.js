@@ -5,7 +5,7 @@
  *
  *   node scripts/e2e-pause-live.js
  *
- * 做法：把打包目录里的「Wink.exe」用独立 --user-data-dir 拉起（不碰用户配置），
+ * 做法：把打包目录里的「Winkow.exe」用独立 --user-data-dir 拉起（不碰用户配置），
  * 预置「网页模式 + 本地页面（autoplay 视频）」，然后把鼠标移到窗口外触发自动隐藏、
  * 再移回窗口触发恢复，最后用 %TEMP%\moyu-pause.log 里主进程写下的记录做判定。
  *
@@ -19,10 +19,10 @@ const path = require('path');
 const http = require('http');
 
 const ROOT = path.join(__dirname, '..');
-// 打包目录里的 exe 名跟 productName 走：1.0.39 起是 Wink.exe，兼容旧产物名
-const EXE = ['Wink.exe', '摸鱼小窗.exe', 'MoyuFloat.exe']
+// 打包目录里的 exe 名跟 productName 走：1.0.39 起是 Winkow.exe，兼容旧产物名
+const EXE = ['Winkow.exe', '摸鱼小窗.exe', 'MoyuFloat.exe']
   .map((n) => path.join(ROOT, 'dist', 'win-unpacked', n))
-  .find((p) => fs.existsSync(p)) || path.join(ROOT, 'dist', 'win-unpacked', 'Wink.exe');
+  .find((p) => fs.existsSync(p)) || path.join(ROOT, 'dist', 'win-unpacked', 'Winkow.exe');
 const USERDATA = path.join(os.tmpdir(), 'moyu-137-e2e');
 const PLOG = path.join(os.tmpdir(), 'moyu-pause.log');
 const PORT = 27991;
@@ -63,7 +63,7 @@ function moveCursor(x, y) {
   } catch (_) { return false; }
 }
 
-// 1.0.39 把产品名改成了 Wink，按名字只匹配「摸鱼」就杀不到新进程，
+// 1.0.39 把产品名改成了 Winkow，按名字只匹配「摸鱼」就杀不到新进程，
 // 旧实例会一直占着单实例锁，导致后面起的第二个进程被顶掉、日志全是旧实例写的。
 // 这里同时兼容三个历史进程名，并且只杀 dist\win-unpacked 下的测试实例，
 // 不碰用户自己安装的正式版。
@@ -71,7 +71,7 @@ const killAll = () => {
   try {
     execFileSync('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command',
       "Get-Process -ErrorAction SilentlyContinue | Where-Object { " +
-      "($_.ProcessName -like 'Wink*' -or $_.ProcessName -like '*摸鱼*' -or $_.ProcessName -like 'MoyuFloat*') " +
+      "($_.ProcessName -like 'Winkow*' -or $_.ProcessName -like '*摸鱼*' -or $_.ProcessName -like 'MoyuFloat*') " +
       "} | ForEach-Object { try { $p = $_.Path } catch { $p = '' } " +
       "if ($p -like '*win-unpacked*') { Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue } }"
     ], { windowsHide: true, timeout: 20000 });

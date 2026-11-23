@@ -9,7 +9,7 @@
  *   5) 卡片 10% 白填充 + 20% 白描边、hover 提亮 + 紫色光晕
  *   6) 500ms ease-out + 上浮 + 1.02 放大
  *   7) 待机大图 / logo / 图标 / 观看页都来自用户给的两张小狐狸
- *   8) 品牌名统一为 Wink，且功能契约（hidden / 纯净模式）没被改掉
+ *   8) 品牌名统一为 Winkow，且功能契约（hidden / 纯净模式）没被改掉
  *
  *   node scripts/probe-visual-theme.js
  */
@@ -172,13 +172,13 @@ ok('抠图脚本可复现，源图留在 fixtures（不进安装包）',
 // ---- 8) 命名与功能契约 ----
 // 版本号不写死：每次升版都来这儿改一个字，探针早晚会在「忘了同步关于页」时
 // 假失败一次，久了就没人信它了。这里只锁「形如 x.y.z」，版本一致性交给下一条。
-ok('应用名改为 Wink', pkg.productName === 'Wink' && pkg.build.productName === 'Wink' &&
-  pkg.build.nsis.shortcutName === 'Wink' && /^\d+\.\d+\.\d+$/.test(pkg.version));
-ok('界面标题 / 品牌 / 托盘 / 设备名都是 Wink',
-  floatHtml.includes('<title>Wink</title>') && floatHtml.includes('<b>Wink</b>') &&
-  settingsHtml.includes('<title>Wink · 设置</title>') && settingsHtml.includes('<b>Wink</b>') &&
-  read('src/main/tray.js').includes("setToolTip('Wink')") &&
-  read('src/shared/constants.js').includes("airplayName: 'Wink'"));
+ok('应用名改为 Winkow', pkg.productName === 'Winkow' && pkg.build.productName === 'Winkow' &&
+  pkg.build.nsis.shortcutName === 'Winkow' && /^\d+\.\d+\.\d+$/.test(pkg.version));
+ok('界面标题 / 品牌 / 托盘 / 设备名都是 Winkow',
+  floatHtml.includes('<title>Winkow</title>') && floatHtml.includes('<b>Winkow</b>') &&
+  settingsHtml.includes('<title>Winkow · 设置</title>') && settingsHtml.includes('<b>Winkow</b>') &&
+  read('src/main/tray.js').includes("setToolTip('Winkow')") &&
+  read('src/shared/constants.js').includes("airplayName: 'Winkow'"));
 ok('保留内部 name / appId，老配置目录在打包版被钉回',
   pkg.name === 'moyu-float' && pkg.build.appId === 'com.moyufloat.float' &&
   read('src/main/index.js').includes("'摸鱼小窗'") &&
@@ -195,7 +195,7 @@ ok('纯净模式外壳仍无边框无圆角',
   /body\.pure \.shell\s*\{[^}]*border:\s*0[^}]*border-radius:\s*0/.test(floatCss));
 ok(`设置页关于里记录的是当前版本 ${pkg.version}（且保留 1.0.39 历史）`,
   settingsHtml.includes(`<b>${pkg.version}</b>`) &&
-  settingsHtml.includes(`Wink · ${pkg.version} · Windows`) &&
+  settingsHtml.includes(`Winkow · ${pkg.version} · Windows`) &&
   settingsHtml.includes('<b>1.0.39</b>'));
 
 // ---- 9) 浅色 / 深色 / 跟随系统 ----

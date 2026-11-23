@@ -4,7 +4,7 @@
  * check-webcodecs-electron.js —— 在**项目自带的 Electron** 里检查 WebCodecs
  * 到底支不支持 avc1（H.264）。
  *
- * 为什么必须单独查：之前的解码验证全在系统 Chrome（新版）里跑的，而 Wink
+ * 为什么必须单独查：之前的解码验证全在系统 Chrome（新版）里跑的，而 Winkow
  * 打包用的是 Electron 20 / Chromium 104。WebCodecs 早期版本只保证 VP8/VP9/AV1，
  * H.264 是后补的，且和平台解码器有关。如果这里返回 false，整条 vnet 链路在
  * 生产里就是黑的 —— 跟 harness 里跑得多漂亮无关。
@@ -23,7 +23,7 @@ app.whenReady().then(async () => {
    * 而 data: URL 属于不透明来源 → 不是安全上下文 → VideoDecoder 直接不存在，
    * 会得到一个"这个 Electron 不支持 H.264"的假结论。file: 在 Chromium 里被
    * 视为 potentially trustworthy，才是生产环境的真实情形（浮窗就是 file://）。 */
-  const probeHtml = path.join(os.tmpdir(), 'wink-webcodecs-probe.html');
+  const probeHtml = path.join(os.tmpdir(), 'winkow-webcodecs-probe.html');
   fs.writeFileSync(probeHtml, '<!doctype html><meta charset="utf-8"><title>probe</title><body>probe</body>', 'utf8');
 
   const win = new BrowserWindow({ show: false, width: 320, height: 240 });

@@ -19,7 +19,7 @@ const http = require('http');
 
 const ROOT = path.join(__dirname, '..');
 const ELECTRON = path.join(ROOT, 'node_modules', 'electron', 'dist', 'electron.exe');
-const USERDATA = path.join(os.tmpdir(), 'wink-theme-e2e');
+const USERDATA = path.join(os.tmpdir(), 'winkow-theme-e2e');
 const CFG = path.join(USERDATA, 'moyu-config.json');
 const PORT = 9333;
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));

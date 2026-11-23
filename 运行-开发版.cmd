@@ -4,7 +4,7 @@ chcp 65001 >nul
 cd /d "%~dp0"
 
 rem ============================================================
-rem  Wink 开发版启动器（源码运行，含未打包的新改动）
+rem  Winkow 开发版启动器（源码运行，含未打包的新改动）
 rem
 rem  为什么不直接双击 electron.exe：它必须带一个「应用目录」参数才能
 rem  知道要加载哪个项目。只双击 exe 会打开 Electron 的默认欢迎页。
@@ -24,7 +24,7 @@ if not exist "node_modules\electron\dist\electron.exe" (
   exit /b 1
 )
 
-echo 正在启动 Wink（源码版）...
+echo 正在启动 Winkow（源码版）...
 echo   项目目录： %CD%
 echo   画面通道： 引擎 -vnet 直出 H264 -^> 浮窗 WebCodecs 解码
 echo.

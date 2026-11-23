@@ -26,11 +26,11 @@ const mainJs = g('src/main/index.js');
 
 console.log('\n== 版本与品牌 ==');
 ok('version = 1.0.40', pkg.version === '1.0.40', pkg.version);
-ok('productName = Wink', pkg.productName === 'Wink', pkg.productName);
+ok('productName = Winkow', pkg.productName === 'Winkow', pkg.productName);
 ok('内部 name 仍是 moyu-float（配置兼容）', pkg.name === 'moyu-float', pkg.name);
 ok('appId 仍是 com.moyufloat.float', srcPkg.build && srcPkg.build.appId === 'com.moyufloat.float');
-ok('nsis 快捷方式名 = Wink', srcPkg.build.nsis && srcPkg.build.nsis.shortcutName === 'Wink');
-ok('安装包产物名为 Wink', srcPkg.build.nsis && /Wink-\$\{version\}-Setup/.test(srcPkg.build.nsis.artifactName));
+ok('nsis 快捷方式名 = Winkow', srcPkg.build.nsis && srcPkg.build.nsis.shortcutName === 'Winkow');
+ok('安装包产物名为 Winkow', srcPkg.build.nsis && /Winkow-\$\{version\}-Setup/.test(srcPkg.build.nsis.artifactName));
 ok('extraFiles 带 airplay 引擎', JSON.stringify(srcPkg.build.extraFiles) === '[{"from":"airplay","to":"airplay"}]', JSON.stringify(srcPkg.build.extraFiles));
 ok('包内 airplay 引擎目录存在（与 exe 同级）', require('fs').existsSync('dist/win-unpacked/airplay') &&
   require('fs').readdirSync('dist/win-unpacked/airplay').length > 100,
@@ -69,14 +69,14 @@ ok('float.html 没有旧的小耳朵 ears', !floatHtml.includes('class="ears"') 
 ok('float.css 里 ears 已清空', !floatCss.includes('.ears'));
 ok('待机大图用 fox-full.png', floatHtml.includes('fox-full.png'));
 ok('头像/logo 用 fox-logo.png', floatHtml.includes('fox-logo.png'));
-ok('标题是 Wink', /<title>Wink<\/title>/.test(floatHtml));
+ok('标题是 Winkow', /<title>Winkow<\/title>/.test(floatHtml));
 ok('设置页 1.0.40 版本记录存在', settingsHtml.includes('1.0.40') && settingsHtml.includes('1.0.39'));
 ok('设置页无「投影只用纯黑」旧文案', !settingsHtml.includes('投影只用纯黑'));
 
 console.log('\n== 行为开关不变 ==');
 ok('隐藏暂停逻辑随包发布（playback.js / pauseOnHide）', /pauseOnHide/.test(g('src/main/playback.js')));
 ok('userData 钉回旧目录 + customUserData 守卫', mainJs.includes('摸鱼小窗') && mainJs.includes('customUserData'));
-ok('托盘/设备名 Wink', floatHtml.includes('>Wink<'));
+ok('托盘/设备名 Winkow', floatHtml.includes('>Winkow<'));
 
 console.log('\n' + (fail === 0 ? 'ALL PASS' : 'HAS FAIL') + ': ' + pass + ' pass / ' + fail + ' fail');
 process.exit(fail === 0 ? 0 : 1);

@@ -17,7 +17,7 @@
   function airplayError(raw) {
     const t = String(raw || '');
     if (/未找到 AirPlay 引擎|未检测到接收引擎|airplay\s*文件夹/i.test(t)) {
-      return '缺少投屏组件，建议重新安装 Wink';
+      return '缺少投屏组件，建议重新安装 Winkow';
     }
     if (/机器级参数文件/.test(t)) return '投屏参数被其他程序占用了，重启电脑后再试一次';
     if (/EADDRINUSE|已被占用|in use/i.test(t)) return '投屏通道被别的投屏软件占用了，关掉它再试一次';
@@ -36,5 +36,5 @@
     return '这个网页没打开，检查一下网址和网络';
   }
 
-  window.WinkText = { airplayError, pageError };
+  window.WinkowText = { airplayError, pageError };
 })();

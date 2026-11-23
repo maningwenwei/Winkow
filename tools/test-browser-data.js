@@ -10,7 +10,7 @@ const os = require('os');
 const path = require('path');
 const BrowserData = require('../src/main/browser-data');
 
-const DIR = path.join(os.tmpdir(), `wink-browser-data-test-${process.pid}`);
+const DIR = path.join(os.tmpdir(), `winkow-browser-data-test-${process.pid}`);
 const FILE = path.join(DIR, 'moyu-browser.json');
 let remember = false;
 const store = () => new BrowserData({ file: FILE, remember: () => remember });

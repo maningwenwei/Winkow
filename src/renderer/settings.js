@@ -2,7 +2,7 @@
   'use strict';
   const api = window.moyu;
   const $ = (id) => document.getElementById(id);
-  const TXT = window.WinkText || { airplayError: () => '出错了，请再试一次' };
+  const TXT = window.WinkowText || { airplayError: () => '出错了，请再试一次' };
   const bindings = Array.from(document.querySelectorAll('[data-key]'));
   const tabs = Array.from(document.querySelectorAll('.tab'));
   const panels = Array.from(document.querySelectorAll('.panel'));

@@ -5,7 +5,7 @@
  * inspect-running.js —— 连上一个**已在运行**的 Electron/Chromium 的调试端口，
  * 在真实页面里求值，并把 console 消息收下来。
  *
- * 用途：验证打包后的 Wink.exe 里渲染层到底有没有起来、预加载有没有注入、
+ * 用途：验证打包后的 Winkow.exe 里渲染层到底有没有起来、预加载有没有注入、
  * 浮窗 UI 有没有画出来。cdp-probe 是自己拉浏览器，这个正好相反——挂到现成的进程上。
  *
  * usage: node tools/inspect-running.js [port] [waitMs]

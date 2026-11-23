@@ -5,7 +5,7 @@
  * 是否 did-finish-load。只访问本机回环 HTTP，不依赖外网。
  *
  *   node scripts/e2e-web.js                                  # 源码模式
- *   node scripts/e2e-web.js dist/win-unpacked/Wink.exe  # 打包后的目录版 exe
+ *   node scripts/e2e-web.js dist/win-unpacked/Winkow.exe  # 打包后的目录版 exe
  *
  * 用独立的 --user-data-dir，因此不会碰用户的真实配置，也不会与用户正在运行的
  * 实例争抢单实例锁（否则新进程会启动即退出）。临时目录在结束时清理。

@@ -154,7 +154,7 @@ const DEFAULT_CONFIG = Object.freeze({
   trayVisible: true,
   autoStart: false,
   // iOS 屏幕镜像（AirPlay 接收引擎，可选组件；默认全部关闭/不外联）
-  airplayName: 'Wink',            // iPhone「屏幕镜像」里显示的设备名
+  airplayName: 'Winkow',            // iPhone「屏幕镜像」里显示的设备名
   airplayPin: '',                 // 空 = 每次启动随机 4 位
   // 免 PIN 兼容模式：不带 -pin 启动引擎，客户端走「不做配对」的旧路径。
   // 带 -pin 时引擎会与 iPhone 协商共享密钥；若这一步出问题，未加密的 SPS/PPS
